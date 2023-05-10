@@ -116,7 +116,7 @@ def extract_ephemeris(satellite, sp3):
 def interpolate_transform(satellite, telescope_datetime, ephemeris_folder):
     path_to_sp3 = choose_ephemeris(ephemeris_type, ephemeris_folder, telescope_datetime[0])
     sp3 = gr.load_sp3(path_to_sp3, load_sp3)
-    print(sp3)
+    
     
     satellite_itrs_x, satellite_itrs_y, satellite_itrs_z, satellite_time_utc = extract_ephemeris(satellite, sp3)
         
