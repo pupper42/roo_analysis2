@@ -12,5 +12,5 @@ To get this working you need to do some modifications:
 
 * Numerical methods
 
-    * Change `Y = Y[row0-nn:row0+nn+1, :]` in lin 68 to `Y = Y[row0-nn:row0+nn+1]`
+    * Change `Y = Y[row0-nn:row0+nn+1, :]` in line 68 to `Y = Y[row0-nn:row0+nn+1]`
  
