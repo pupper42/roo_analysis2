@@ -80,8 +80,8 @@ def choose_ephemeris(ephemeris_type, ephemeris_folder, time):
     return file_path
 
 def interpolate(x, y, z, satellite_time_utc, telescope_datetime):
-    satellite_time_utc_timestamp = np.array([pd.to_datetime([time]).astype(int) / 10**6 for time in satellite_time_utc]).flatten()
-    telescope_datetime_timestamp = np.array([pd.to_datetime([str(time)]).astype(int) / 10**6 for time in telescope_datetime]).flatten()
+    satellite_time_utc_timestamp = np.array([pd.to_datetime([time]).astype(np.int64) / 10**6 for time in satellite_time_utc]).flatten()
+    telescope_datetime_timestamp = np.array([pd.to_datetime([str(time)]).astype(np.int64) / 10**6 for time in telescope_datetime]).flatten()
     x_interp = []
     y_interp = []
     z_interp = []
@@ -116,6 +116,7 @@ def extract_ephemeris(satellite, sp3):
 def interpolate_transform(satellite, telescope_datetime, ephemeris_folder):
     path_to_sp3 = choose_ephemeris(ephemeris_type, ephemeris_folder, telescope_datetime[0])
     sp3 = gr.load_sp3(path_to_sp3, load_sp3)
+    print(sp3)
     
     satellite_itrs_x, satellite_itrs_y, satellite_itrs_z, satellite_time_utc = extract_ephemeris(satellite, sp3)
         
